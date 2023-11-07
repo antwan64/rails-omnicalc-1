@@ -58,4 +58,19 @@ class GameController < ApplicationController
 
     end
 
+    def random
+      render ({ :template => "game_templates/random"})
+    end
+
+    def random_results
+      @min_input = params.fetch("user_min").to_f
+      @max_input = params.fetch("user_max").to_f
+
+      @result = rand(@min_input..@max_input)
+
+
+      render ({ :template => "game_templates/random_results"})
+
+    end
+
 end
